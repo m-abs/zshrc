@@ -362,7 +362,9 @@ alias afsl='apt-file -l search'
 #alias a=alias
 alias ua=unalias
 
-alias ls='ls --color=auto'
+if [[ -x $(ls --color=auto 2>&1 > /dev/null) ]]; then
+  alias ls='ls --color=auto'
+fi
 alias la='ls -a'
 alias ll='ls -l'
 alias lll="ll $* | less -r"
