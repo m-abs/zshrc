@@ -271,18 +271,18 @@ else
 	export PAGER="more"
 fi
 
-[[ -x $(which colordiff) ]] && alias diff=colordiff
+type colordiff > /dev/null  && alias diff=colordiff
 
-([[ -x $(which w3m) ]]       && export BROWSER="w3m")      || \
-([[ -x $(which links2) ]]    && export BROWSER="links2")   || \
-([[ -x $(which elinks) ]]    && export BROWSER="elinks")   || \
-([[ -x $(which lynx) ]]      && export BROWSER="lynx")     || \
-([[ -x $(which links) ]]     && export BROWSER="links")    || \
+(type w3m > /dev/null       && export BROWSER="w3m") || \
+(type links2 > /dev/null    && export BROWSER="links2") || \
+(type elinks > /dev/null    && export BROWSER="elinks") || \
+(type lynx > /dev/null      && export BROWSER="lynx") || \
+(type links > /dev/null     && export BROWSER="links") || \
 echo "WARNING: You do not have any browser installed!"
 
-([[ -x $(which vimdiff) ]]   && export DIFFER="vimdiff")   || \
-([[ -x $(which colordiff) ]] && export DIFFER="colordiff") || \
-([[ -x $(which diff) ]]      && export DIFFER="diff")      || \
+(type vimdiff > /dev/null   && export DIFFER="vimdiff") || \
+(type colordiff > /dev/null && export DIFFER="colordiff") || \
+(type diff > /dev/null      && export DIFFER="diff") || \
 echo "WARNING: You do not have any differ installed!"
 
 
