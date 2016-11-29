@@ -545,3 +545,9 @@ startup
 foreach dotfile (/etc/zsh/local ~/.zshrc.local ~/.zshrc.$HOST ~/.zshrc.$USER); do
 	if [[ -r $dotfile ]]; then; echo "Sourcing $dotfile"; source $dotfile; fi
 done
+
+###-tns-completion-start-###
+if [ -f $HOME/.tnsrc ]; then 
+    source $HOME/.tnsrc 
+fi
+###-tns-completion-end-###
